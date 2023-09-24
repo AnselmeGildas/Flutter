@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages/chat_page.dart';
+import 'package:flutter_application_1/pages/screens/chat_page.dart';
 import 'package:flutter_application_1/utils/constants.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter_application_1/components/my_button.dart';
@@ -209,7 +209,7 @@ class _LoginPageState extends State<LoginPage> {
                                     fontWeight: FontWeight.bold
                         )), 
                         onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(builder: ((context) => const SignUpPage())));
+                          Navigator.of(context).push(MaterialPageRoute(builder: ((context) => RegisterPage())));
                         },
                       )
                     ],

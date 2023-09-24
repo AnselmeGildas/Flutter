@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages/chat_page.dart';
+import 'package:flutter_application_1/pages/screens/chat_page.dart';
 import 'package:flutter_application_1/pages/login_page.dart';
 import 'package:flutter_application_1/utils/constants.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -9,15 +9,13 @@ import 'package:flutter_application_1/components/square_tile.dart';
 import 'package:flutter_application_1/pages/auth_page.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({Key? key, required this.isRegistering}) : super(key: key);
+  RegisterPage({super.key});
 
-  static Route<void> route({bool isRegistering = false}) {
+  static Route<void> route() {
     return MaterialPageRoute(
-      builder: (context) => RegisterPage(isRegistering: isRegistering),
+      builder: (context) => RegisterPage(),
     );
   }
-
-  final bool isRegistering;
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -42,13 +40,9 @@ class _RegisterPageState extends State<RegisterPage> {
           );
         },
       );
-      final isValid = _formKey.currentState!.validate();
-      if (!isValid) {
-        return;
-      }
       final email = _emailController.text;
       final password = _passwordController.text;
-      final password = _repasswordController.text;
+      final repassword = _repasswordController.text;
       final username = _usernameController.text;
       try {
         await supabase.auth.signUp(
@@ -237,7 +231,7 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
         )
       )
-    )
+    );
   }
 }
 

@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
 
   // sign user out method
   void signUserOut() {
-    await supabase.auth.signOut();
+    supabase.auth.signOut();
   }
 
   @override
