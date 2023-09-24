@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/constants.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:flutter_application_1/pages/splash_page.dart';
+import 'package:flutter_application_1/pages/auth_page.dart';
+import 'package:flutter_application_1/pages/login_page.dart';
+import 'package:flutter_application_1/pages/register_page.dart';
+import 'package:flutter_application_1/pages/screens/home_page.dart';
+import 'package:flutter_application_1/pages/loadingpage.dart';
+import 'package:flutter_application_1/pages/onboarding.dart';
 
+int? initOnbaord=0;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  //Return String
+  if (prefs.getInt("initOnbaord") == null) {
+    initOnbaord = 0;
+  } else {
+    initOnbaord = prefs.getInt("initOnbaord");
+  }
 
   await Supabase.initialize(
     // TODO: Replace credentials with your own
@@ -21,9 +34,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'My Chat App',
-      theme: appTheme,
-      home: const SplashPage(),
+      title: 'AgriXTECH',
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white
+      ),
+      home: const DelayedHomePage(),
+      routes: {
+        '/OnboardingPage': (context) => const OnboardingPage(),
+        '/HomePage': (context) => HomePage(),
+        '/LoginPage': (context) => const LoginPage(),
+        '/RegisterPage': (context) => const RegisterPage(),
+        '/Auth': (context) => const AuthPage(),
+      },
     );
   }
 }
