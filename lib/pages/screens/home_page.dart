@@ -11,7 +11,6 @@ import 'package:flutter_application_1/pages/screens/add_field.dart';
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
-  final user = FirebaseAuth.instance.currentUser!;
 
   // sign user out method
   void signUserOut() {
