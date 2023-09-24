@@ -40,7 +40,7 @@ class _RegisterPageState extends State<RegisterPage> {
     final number = _numberController.text;
     try {
       await supabase.auth.signUp(
-          email: email, password: password, data: {'username': username});
+          email: email, password: password, data: {'username': username, 'number': number});
       Navigator.of(context)
           .pushAndRemoveUntil(ChatPage.route(), (route) => false);
     } on AuthException catch (error) {
@@ -108,6 +108,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 return null;
               },
             ),
+            formSpacer,
             TextFormField(
               controller: _numberController,
               decoration: const InputDecoration(
