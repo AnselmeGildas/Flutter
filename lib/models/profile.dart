@@ -21,5 +21,6 @@ class Profile {
   Profile.fromMap(Map<String, dynamic> map)
       : id = map['id'],
         username = map['username'],
+        number = map['number'],
         createdAt = DateTime.parse(map['created_at']);
 }
