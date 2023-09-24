@@ -7,6 +7,7 @@ import 'package:flutter_application_1/pages/register_page.dart';
 import 'package:flutter_application_1/pages/screens/home_page.dart';
 import 'package:flutter_application_1/pages/loadingpage.dart';
 import 'package:flutter_application_1/pages/onboarding.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 int? initOnbaord=0;
 Future<void> main() async {
