@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_chat_app/pages/chat_page.dart';
-import 'package:my_chat_app/pages/register_page.dart';
-import 'package:my_chat_app/utils/constants.dart';
+import 'package:flutter_application_1/pages/chat_page.dart';
+import 'package:flutter_application_1/pages/register_page.dart';
+import 'package:flutter_application_1/utils/constants.dart';
 
 /// Page to redirect users to the appropriate page depending on the initial auth state
 class SplashPage extends StatefulWidget {
