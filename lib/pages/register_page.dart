@@ -114,9 +114,6 @@ class _RegisterPageState extends State<RegisterPage> {
                 label: Text('Number'),
               ),
               keyboardType: TextInputType.number,
-              inputFormatters: <TextInputFormatter>[
-                FilteringTextInputFormatter.digitsOnly
-              ],
               validator: (val) {
                 if (val == null || val.isEmpty) {
                   return 'Required';
