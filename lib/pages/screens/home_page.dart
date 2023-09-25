@@ -1,5 +1,6 @@
 import 'package:flutter_application_1/utils/constants.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter_application_1/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
@@ -20,7 +21,7 @@ class HomePage extends StatelessWidget {
       supabase.auth.signOut();
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => const AuthPage()), 
+          MaterialPageRoute(builder: (context) => const LoginPage()), 
           (Route <dynamic> route)=>false
       );
     }
@@ -53,18 +54,25 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment:CrossAxisAlignment.end,
             children: [
-              FlutterMap(
-                options: MapOptions(
-                  center: LatLng(51.509364, -0.128928),
-                  zoom: 9.2,
-                ),
-                children: [
-                  TileLayer(
-                    urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                    userAgentPackageName: 'com.example.app',
+              Center(
+                child: Padding(
+                  padding: EdgeInsets.only(bottom:15.0),
+                  child: FlutterMap(
+                    options: MapOptions(
+                      center: LatLng(51.509364, -0.128928),
+                      zoom: 9.2,
+                    ),
+                    children: [
+                      TileLayer(
+                        urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                        userAgentPackageName: 'com.example.app',
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
+
+              
               /* const Center(
                 child: Padding(
                   padding: EdgeInsets.only(bottom:15.0),
