@@ -57,8 +57,10 @@ class _RegisterPageState extends State<RegisterPage> {
           (Route <dynamic> route)=>false
         );
       } on AuthException catch (error) {
+        Navigator.pop(context);
         context.showErrorSnackBar(message: error.message);
       } catch (error) {
+        Navigator.pop(context);
         context.showErrorSnackBar(message: unexpectedErrorMessage);
       }
     }
