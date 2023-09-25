@@ -15,6 +15,7 @@ class HomePage extends StatelessWidget {
   // sign user out method
   void signUserOut() {
     supabase.auth.signOut();
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AuthPage()));
   }
 
   @override

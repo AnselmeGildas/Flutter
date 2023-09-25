@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
         password: _passwordController.text,
       );
       Navigator.of(context)
-          .pushAndRemoveUntil(ChatPage.route(), (route) => false);
+          .pushAndRemoveUntil(AuthPage.route(), (route) => false);
     } on AuthException catch (error) {
       Navigator.pop(context);
       context.showErrorSnackBar(message: error.message);

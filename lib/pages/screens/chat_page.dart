@@ -56,7 +56,23 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Chat')),
+        appBar: AppBar(
+          elevation: 5,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(15)
+            )
+          ),
+          title: const Text("Conseiller", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.white),),
+          automaticallyImplyLeading: false,
+          backgroundColor: const Color.fromRGBO(64, 212, 0, 1),
+          actions: [
+            IconButton(
+              onPressed: signUserOut,
+              icon: const Icon(Icons.logout),
+            )
+          ], 
+      ),
       body: StreamBuilder<List<Message>>(
         stream: _messagesStream,
         builder: (context, snapshot) {
@@ -67,7 +83,7 @@ class _ChatPageState extends State<ChatPage> {
                 Expanded(
                   child: messages.isEmpty
                       ? const Center(
-                          child: Text('Start your conversation now :)'),
+                          child: Text('Commencer une conversation :)'),
                         )
                       : ListView.builder(
                           reverse: true,
@@ -128,7 +144,7 @@ class _MessageBarState extends State<_MessageBar> {
                   autofocus: true,
                   controller: _textController,
                   decoration: const InputDecoration(
-                    hintText: 'Type a message',
+                    hintText: 'Entrez votre message',
                     border: InputBorder.none,
                     focusedBorder: InputBorder.none,
                     contentPadding: EdgeInsets.all(8),
@@ -137,7 +153,7 @@ class _MessageBarState extends State<_MessageBar> {
               ),
               TextButton(
                 onPressed: () => _submitMessage(),
-                child: const Text('Send'),
+                child: const Text('Envoyer'),
               ),
             ],
           ),
