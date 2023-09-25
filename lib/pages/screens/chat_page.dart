@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-
+import 'package:flutter_application_1/pages/auth_page.dart';
 import 'package:flutter_application_1/models/message.dart';
 import 'package:flutter_application_1/models/profile.dart';
 import 'package:flutter_application_1/utils/constants.dart';
@@ -39,6 +39,15 @@ class _ChatPageState extends State<ChatPage> {
             .map((map) => Message.fromMap(map: map, myUserId: myUserId))
             .toList());
     super.initState();
+  }
+  
+  void signUserOut() {
+    supabase.auth.signOut();
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => const AuthPage()), 
+        (Route <dynamic> route)=>false
+    );
   }
 
   Future<void> _loadProfileCache(String profileId) async {

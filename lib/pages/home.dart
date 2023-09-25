@@ -6,7 +6,8 @@ import 'package:flutter_application_1/pages/screens/home_page.dart';
 import 'package:flutter_application_1/pages/screens/account.dart';
 import 'package:flutter_application_1/pages/screens/detect.dart';
 import 'package:flutter_application_1/pages/screens/manage.dart';
-
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter_application_1/pages/auth_page.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -24,6 +25,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   
   final _controller = PersistentTabController(initialIndex: 0);
+
 
   @override
   Widget build(BuildContext context) {

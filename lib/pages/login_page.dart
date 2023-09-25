@@ -6,7 +6,7 @@ import 'package:flutter_application_1/components/my_button.dart';
 import 'package:flutter_application_1/components/my_textfield.dart';
 import 'package:flutter_application_1/components/square_tile.dart';
 import 'package:flutter_application_1/pages/register_page.dart';
-
+import 'package:flutter_application_1/pages/auth_page.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -40,8 +40,11 @@ class _LoginPageState extends State<LoginPage> {
         email: _emailController.text,
         password: _passwordController.text,
       );
-      Navigator.of(context)
-          .pushAndRemoveUntil(AuthPage.route(), (route) => false);
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => const AuthPage()), 
+          (Route <dynamic> route)=>false
+      );
     } on AuthException catch (error) {
       Navigator.pop(context);
       context.showErrorSnackBar(message: error.message);

@@ -11,6 +11,12 @@ import 'package:flutter_application_1/pages/register_page.dart';
 class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);
 
+  static Route<void> route() {
+    return MaterialPageRoute(
+      builder: (context) => const AuthPage(),
+    );
+  }
+
   @override
   AuthPageState createState() => AuthPageState();
 }
