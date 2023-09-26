@@ -27,8 +27,8 @@ class HomePage extends StatelessWidget {
     }
     return FlutterMap(
     options: MapOptions(
-      center: LatLng(51.509364, -0.128928),
-      zoom: 9.2,
+      center: LatLng(6.817024,-5.281489),
+      zoom: 7.2,
     ),
     children: [
       TileLayer(
