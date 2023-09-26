@@ -40,15 +40,6 @@ class _ChatPageState extends State<ChatPage> {
             .toList());
     super.initState();
   }
-  
-  void signUserOut() {
-    supabase.auth.signOut();
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(builder: (context) => const AuthPage()), 
-        (Route <dynamic> route)=>false
-    );
-  }
 
   Future<void> _loadProfileCache(String profileId) async {
     if (_profileCache[profileId] != null) {
@@ -75,12 +66,6 @@ class _ChatPageState extends State<ChatPage> {
           title: const Text("Conseiller", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.white),),
           automaticallyImplyLeading: false,
           backgroundColor: const Color.fromRGBO(64, 212, 0, 1),
-          actions: [
-            IconButton(
-              onPressed: signUserOut,
-              icon: const Icon(Icons.logout),
-            )
-          ], 
       ),
       body: StreamBuilder<List<Message>>(
         stream: _messagesStream,
@@ -220,7 +205,7 @@ class _ChatBubble extends StatelessWidget {
         CircleAvatar(
           child: profile == null
               ? preloader
-              : Text(profile!.username.substring(0, 2)),
+              : Text(profile!.username.substring(0, 1)),
         ),
       const SizedBox(width: 12),
       Flexible(

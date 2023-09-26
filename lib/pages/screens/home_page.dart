@@ -25,7 +25,22 @@ class HomePage extends StatelessWidget {
           (Route <dynamic> route)=>false
       );
     }
-    return WillPopScope(
+    return FlutterMap(
+    options: MapOptions(
+      center: LatLng(51.509364, -0.128928),
+      zoom: 9.2,
+    ),
+    children: [
+      TileLayer(
+        urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        userAgentPackageName: 'com.example.app',
+      ),
+    ],
+  );
+  }
+}
+
+/*WillPopScope(
       onWillPop: () async{
         return false;
       },
@@ -49,7 +64,7 @@ class HomePage extends StatelessWidget {
           ], 
         ),
         body: Padding(
-          padding: const EdgeInsets.only(bottom: 20, right: 9),
+          padding: const EdgeInsets.only(bottom: 20), //, right: 9),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment:CrossAxisAlignment.end,
@@ -73,7 +88,7 @@ class HomePage extends StatelessWidget {
               ),
 
               
-              /* const Center(
+               const Center(
                 child: Padding(
                   padding: EdgeInsets.only(bottom:15.0),
                   child: Text("Ajoute ta première parcelle.",
@@ -90,7 +105,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-              ), */
+              ), 
               Align(
                 alignment: Alignment.bottomRight,
                 child:
@@ -112,6 +127,4 @@ class HomePage extends StatelessWidget {
         )
         
         ),
-    );
-  }
-}
+    );*/

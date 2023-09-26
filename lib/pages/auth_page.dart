@@ -34,11 +34,17 @@ class AuthPageState extends State<AuthPage> {
 
     final session = supabase.auth.currentSession;
     if (session == null) {
-      Navigator.of(context)
-          .pushAndRemoveUntil(LoginPage.route(), (route) => false);
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => LoginPage()), 
+          (Route <dynamic> route)=>false
+        );
     } else {
-      Navigator.of(context)
-          .pushAndRemoveUntil(Home.route(), (route) => false);
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => Home()), 
+        (Route <dynamic> route)=>false
+      );
     }
   }
 
