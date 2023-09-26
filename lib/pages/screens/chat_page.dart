@@ -203,6 +203,7 @@ class _ChatBubble extends StatelessWidget {
     List<Widget> chatContents = [
       if (!message.isMine)
         CircleAvatar(
+          backgroundColor: const Color.fromRGBO(64, 212, 0, 1),
           child: profile == null
               ? preloader
               : Text(profile!.username.substring(0, 1)),
