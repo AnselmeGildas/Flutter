@@ -19,24 +19,106 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     void signUserOut() {
       supabase.auth.signOut();
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (context) => const LoginPage()), 
-          (Route <dynamic> route)=>false
-      );
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LoginPage()));
     }
-    return FlutterMap(
-    options: MapOptions(
-      center: LatLng(6.817024,-5.281489),
-      zoom: 7.2,
-    ),
-    children: [
-      TileLayer(
-        urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-        userAgentPackageName: 'com.example.app',
-      ),
-    ],
-  );
+    return Scaffold(
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        appBar: AppBar(
+          elevation: 5,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(15)
+            )
+          ),
+          title: const Text("GERER SES PARCELLES", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.white),),
+          automaticallyImplyLeading: false,
+          backgroundColor: const Color.fromRGBO(64, 212, 0, 1),
+          actions: [
+            IconButton(
+              onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AddField()));},
+              icon: const Icon(Icons.add),
+            )
+          ], 
+        ),
+        body: FlutterMap(
+                options: MapOptions(
+                  center: LatLng(51.509364, -0.128928),
+                  zoom: 9.2,
+                ),
+                children: [
+                  TileLayer(
+                    urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    userAgentPackageName: 'com.example.app',
+                  ),
+                ],
+              ),
+              /*Align(
+                alignment: Alignment.bottomRight,
+                child:
+                  ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      shape: const CircleBorder(), 
+                      padding: const EdgeInsets.all(10),
+                      backgroundColor: const Color.fromRGBO(64, 212, 0, 1),
+                  ),
+                  child: const Icon(
+                    Icons.add,
+                    size: 30,
+                  ),
+                  onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AddField()));},
+                  ),
+              ),*/
+        );
+        /*Padding(
+          padding: const EdgeInsets.only(bottom: 20), //, right: 9),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment:CrossAxisAlignment.end,
+            children: [ 
+              FlutterMap(
+                options: MapOptions(
+                  center: LatLng(51.509364, -0.128928),
+                  zoom: 9.2,
+                ),
+                children: [
+                  TileLayer(
+                    urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    userAgentPackageName: 'com.example.app',
+                  ),
+                ],
+              ),
+              Align(
+                alignment: Alignment.bottomRight,
+                child:
+                  ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      shape: const CircleBorder(), 
+                      padding: const EdgeInsets.all(10),
+                      backgroundColor: const Color.fromRGBO(64, 212, 0, 1),
+                  ),
+                  child: const Icon(
+                    Icons.add,
+                    size: 30,
+                  ),
+                  onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AddField()));},
+                  ),
+              ),
+            ],
+          ),
+        )*/
+    
+    /*FlutterMap(
+        options: MapOptions(
+          center: LatLng(6.817024,-5.281489),
+          zoom: 7.2,
+        ),
+        children: [
+          TileLayer(
+            urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+            userAgentPackageName: 'com.example.app',
+          ),
+        ],
+      );*/
   }
 }
 
