@@ -93,7 +93,7 @@ class ImageFromGalleryExState extends State<ImageFromGalleryEx> {
           ),
           title: Text(type == ImageSourceType.camera
               ? "Image de la Camera"
-              : "Image de la Gallery")
+              : "Image de la Gallery"),
           automaticallyImplyLeading: false,
           backgroundColor: const Color.fromRGBO(64, 212, 0, 1),
           ),

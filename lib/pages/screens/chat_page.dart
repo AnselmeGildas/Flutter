@@ -137,6 +137,7 @@ class _MessageBarState extends State<_MessageBar> {
                   maxLines: null,
                   autofocus: true,
                   controller: _textController,
+                  scrollPadding: EdgeInsets.only(bottom: 30),
                   decoration: const InputDecoration(
                     hintText: 'Entrez votre message',
                     border: InputBorder.none,
