@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
         return [
           HomePage(),
           const ManagePage(),
-          const DetectPage(),
+          DetectPage(),
           const ChatPage(),
           const LearnPage(), 
           const AccountPage()
