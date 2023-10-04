@@ -84,7 +84,7 @@ class _ChatPageState extends State<ChatPage> {
                           itemCount: messages.length,
                           itemBuilder: (context, index) {
                             final message = messages[index];
-
+                            
                             _loadProfileCache(message.profileId);
 
                             return _ChatBubble(
@@ -125,32 +125,29 @@ class _MessageBarState extends State<_MessageBar> {
       color: Colors.grey[200],
       child: SafeArea(
         child: Padding(
-          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
-          child: SingleChildScrollView(
-            reverse: true,
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextFormField(
-                    keyboardType: TextInputType.text,
-                    maxLines: null,
-                    autofocus: true,
-                    controller: _textController,
-                    scrollPadding: EdgeInsets.only(bottom: 30),
-                    decoration: const InputDecoration(
-                      hintText: 'Entrez votre message',
-                      border: InputBorder.none,
-                      focusedBorder: InputBorder.none,
-                      contentPadding: EdgeInsets.all(8),
-                    ),
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextFormField(
+                  keyboardType: TextInputType.text,
+                  maxLines: null,
+                  autofocus: true,
+                  controller: _textController,
+                  scrollPadding: const EdgeInsets.only(bottom: 200),
+                  decoration: const InputDecoration(
+                    hintText: 'Entrez votre message',
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    contentPadding: EdgeInsets.all(8),
                   ),
                 ),
-                TextButton(
-                  onPressed: () => _submitMessage(),
-                  child: const Text('Envoyer'),
-                ),
-              ],
-            ),
+              ),
+              TextButton(
+                onPressed: () => _submitMessage(),
+                child: const Text('Envoyer'),
+              ),
+            ],
           ),
         ),
       ),
