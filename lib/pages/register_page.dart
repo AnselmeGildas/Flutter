@@ -9,11 +9,11 @@ import 'package:flutter_application_1/components/square_tile.dart';
 import 'package:flutter_application_1/pages/auth_page.dart';
 
 class RegisterPage extends StatefulWidget {
-  RegisterPage({super.key});
+  const RegisterPage({super.key});
 
   static Route<void> route() {
     return MaterialPageRoute(
-      builder: (context) => RegisterPage(),
+      builder: (context) => const RegisterPage(),
     );
   }
 
@@ -51,16 +51,21 @@ class _RegisterPageState extends State<RegisterPage> {
         _passwordController.clear();
         _repasswordController.clear();
         _usernameController.clear();
+        // ignore: use_build_context_synchronously
         Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(builder: (context) => const AuthPage()), 
           (Route <dynamic> route)=>false
         );
       } on AuthException catch (error) {
+        // ignore: use_build_context_synchronously
         Navigator.pop(context);
+        // ignore: use_build_context_synchronously
         context.showErrorSnackBar(message: error.message);
       } catch (error) {
+        // ignore: use_build_context_synchronously
         Navigator.pop(context);
+        // ignore: use_build_context_synchronously
         context.showErrorSnackBar(message: unexpectedErrorMessage);
       }
     }

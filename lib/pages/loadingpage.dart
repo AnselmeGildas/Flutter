@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 
 class DelayedHomePage extends StatefulWidget {
-  const DelayedHomePage({Key? key}) : super(key: key);
+  const DelayedHomePage({super.key});
   @override
   // ignore: library_private_types_in_public_api
   _DelayedHomePageState createState() => _DelayedHomePageState();

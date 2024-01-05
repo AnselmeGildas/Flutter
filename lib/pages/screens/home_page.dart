@@ -4,7 +4,7 @@ import 'package:flutter_application_1/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:flutter_map/plugin_api.dart'; // Only import if required functionality is not exposed by default
+//import 'package:flutter_map/plugin_api.dart'; // Only import if required functionality is not exposed by default
 import 'package:flutter_application_1/pages/screens/add_field.dart';
 import 'package:flutter_application_1/pages/auth_page.dart';
 
@@ -13,14 +13,14 @@ import 'package:flutter_application_1/pages/auth_page.dart';
 //import 'package:latlong2/latlong.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    void signUserOut() {
-      supabase.auth.signOut();
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LoginPage()));
-    }
+    //void signUserOut() {
+      //supabase.auth.signOut();
+      //Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LoginPage()));
+    //}
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         appBar: AppBar(
@@ -41,8 +41,10 @@ class HomePage extends StatelessWidget {
           ], 
         ),
         body: FlutterMap(
-                options: MapOptions(
+                options: const MapOptions(
+                  // ignore: deprecated_member_use
                   center: LatLng(51.509364, -0.128928),
+                  // ignore: deprecated_member_use
                   zoom: 9.2,
                 ),
                 children: [

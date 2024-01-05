@@ -14,7 +14,7 @@ class Home extends StatefulWidget {
 
   static Route<void> route({bool isRegistering = false}) {
     return MaterialPageRoute(
-      builder: (context) => Home(),
+      builder: (context) => const Home(),
     );
   }
   @override
@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
     // ignore: no_leading_underscores_for_local_identifiers
     List<Widget> _buildScreens() {
         return [
-          HomePage(),
+          const HomePage(),
           const ManagePage(),
           DetectPage(),
           const ChatPage(),

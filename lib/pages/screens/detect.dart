@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:async';
@@ -31,8 +33,8 @@ class DetectPage extends StatelessWidget {
           child: Column(
             children: [
               MaterialButton(
-                color: Color.fromRGBO(64, 212, 0, 1),
-                child: Text(
+                color: const Color.fromRGBO(64, 212, 0, 1),
+                child: const Text(
                   "Choisir une image depuis la gallerie",
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.bold),
@@ -42,8 +44,8 @@ class DetectPage extends StatelessWidget {
                 },
               ),
               MaterialButton(
-                color: Color.fromRGBO(64, 212, 0, 1),
-                child: Text(
+                color: const Color.fromRGBO(64, 212, 0, 1),
+                child: const Text(
                   "Prendre une image avec la Camera",
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.bold),
@@ -61,16 +63,21 @@ class DetectPage extends StatelessWidget {
 
 
 class ImageFromGalleryEx extends StatefulWidget {
+  // ignore: prefer_typing_uninitialized_variables
   final type;
-  ImageFromGalleryEx(this.type);
+  const ImageFromGalleryEx(this.type);
 
   @override
-  ImageFromGalleryExState createState() => ImageFromGalleryExState(this.type);
+  // ignore: no_logic_in_create_state
+  ImageFromGalleryExState createState() => ImageFromGalleryExState(type);
 }
 
 class ImageFromGalleryExState extends State<ImageFromGalleryEx> {
+  // ignore: prefer_typing_uninitialized_variables
   var _image;
+  // ignore: prefer_typing_uninitialized_variables
   var imagePicker;
+  // ignore: prefer_typing_uninitialized_variables
   var type;
 
   ImageFromGalleryExState(this.type);
@@ -78,7 +85,7 @@ class ImageFromGalleryExState extends State<ImageFromGalleryEx> {
   @override
   void initState() {
     super.initState();
-    imagePicker = new ImagePicker();
+    imagePicker = ImagePicker();
   }
 
   @override
@@ -99,7 +106,7 @@ class ImageFromGalleryExState extends State<ImageFromGalleryEx> {
           ),
       body: Column(
         children: <Widget>[
-          SizedBox(
+          const SizedBox(
             height: 52,
           ),
           Center(
@@ -131,7 +138,7 @@ class ImageFromGalleryExState extends State<ImageFromGalleryEx> {
                             color: Colors.grey[500]),
                         width: 500,
                         height: 500,
-                        child: Icon(
+                        child: const Icon(
                           Icons.camera_alt,
                           color: Color.fromRGBO(64, 212, 0, 1),
                         ),

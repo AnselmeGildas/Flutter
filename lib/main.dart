@@ -21,7 +21,6 @@ Future<void> main() async {
   }
 
   await Supabase.initialize(
-    // TODO: Replace credentials with your own
     url: 'https://tjmzbwuorwogbnjmjecs.supabase.co',
     anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRqbXpid3VvcndvZ2Juam1qZWNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTU1NjIzNTMsImV4cCI6MjAxMTEzODM1M30.ehKRAFpYvsQOHrvW9pklEMl8afNCvDUyRoKsatAHDVI',
   );
@@ -29,7 +28,7 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +41,9 @@ class MyApp extends StatelessWidget {
       home: const DelayedHomePage(),
       routes: {
         '/OnboardingPage': (context) => const OnboardingPage(),
-        '/HomePage': (context) => HomePage(),
+        '/HomePage': (context) => const HomePage(),
         '/LoginPage': (context) => const LoginPage(),
-        '/RegisterPage': (context) => RegisterPage(),
+        '/RegisterPage': (context) => const RegisterPage(),
         '/Auth': (context) => const AuthPage(),
       },
     );

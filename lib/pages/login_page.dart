@@ -8,13 +8,14 @@ import 'package:flutter_application_1/components/square_tile.dart';
 import 'package:flutter_application_1/pages/register_page.dart';
 import 'package:flutter_application_1/pages/auth_page.dart';
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   static Route<void> route() {
     return MaterialPageRoute(builder: (context) => const LoginPage());
   }
 
   @override
+  // ignore: library_private_types_in_public_api
   _LoginPageState createState() => _LoginPageState();
 }
 
@@ -40,16 +41,21 @@ class _LoginPageState extends State<LoginPage> {
         email: _emailController.text,
         password: _passwordController.text,
       );
+      // ignore: use_build_context_synchronously
       Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(builder: (context) => const AuthPage()), 
           (Route <dynamic> route)=>false
       );
     } on AuthException catch (error) {
+      // ignore: use_build_context_synchronously
       Navigator.pop(context);
+      // ignore: use_build_context_synchronously
       context.showErrorSnackBar(message: error.message);
     } catch (_) {
+      // ignore: use_build_context_synchronously
       Navigator.pop(context);
+      // ignore: use_build_context_synchronously
       context.showErrorSnackBar(message: unexpectedErrorMessage);
     }
     if (mounted) {

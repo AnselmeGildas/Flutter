@@ -12,7 +12,7 @@ import 'package:timeago/timeago.dart';
 ///
 /// Displays chat bubbles as a ListView and TextField to enter new chat.
 class ChatPage extends StatefulWidget {
-  const ChatPage({Key? key}) : super(key: key);
+  const ChatPage({super.key});
 
   static Route<void> route() {
     return MaterialPageRoute(
@@ -108,9 +108,7 @@ class _ChatPageState extends State<ChatPage> {
 
 /// Set of widget that contains TextField and Button to submit message
 class _MessageBar extends StatefulWidget {
-  const _MessageBar({
-    Key? key,
-  }) : super(key: key);
+  const _MessageBar();
 
   @override
   State<_MessageBar> createState() => _MessageBarState();
@@ -179,8 +177,10 @@ class _MessageBarState extends State<_MessageBar> {
         'content': text,
       });
     } on PostgrestException catch (error) {
+      // ignore: use_build_context_synchronously
       context.showErrorSnackBar(message: error.message);
     } catch (_) {
+      // ignore: use_build_context_synchronously
       context.showErrorSnackBar(message: unexpectedErrorMessage);
     }
   }
@@ -188,10 +188,9 @@ class _MessageBarState extends State<_MessageBar> {
 
 class _ChatBubble extends StatelessWidget {
   const _ChatBubble({
-    Key? key,
     required this.message,
     required this.profile,
-  }) : super(key: key);
+  });
 
   final Message message;
   final Profile? profile;
@@ -216,7 +215,7 @@ class _ChatBubble extends StatelessWidget {
           decoration: BoxDecoration(
             color: message.isMine
                 ? Colors.grey[300]
-                : Color.fromRGBO(64, 212, 0, 1),
+                : const Color.fromRGBO(64, 212, 0, 1),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Text(message.content),

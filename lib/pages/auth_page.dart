@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter_application_1/utils/constants.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +11,7 @@ import 'package:flutter_application_1/pages/register_page.dart';
 
 /// Page to redirect users to the appropriate page depending on the initial auth state
 class AuthPage extends StatefulWidget {
+  // ignore: use_super_parameters
   const AuthPage({Key? key}) : super(key: key);
 
   static Route<void> route() {
@@ -34,12 +37,14 @@ class AuthPageState extends State<AuthPage> {
 
     final session = supabase.auth.currentSession;
     if (session == null) {
+      // ignore: use_build_context_synchronously
       Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => LoginPage()), 
+          MaterialPageRoute(builder: (context) => const LoginPage()), 
           (Route <dynamic> route)=>false
         );
     } else {
+      // ignore: use_build_context_synchronously
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(builder: (context) => Home()), 

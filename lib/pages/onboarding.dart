@@ -7,7 +7,7 @@ import 'auth_page.dart';
 
 
 class OnboardingPage extends StatefulWidget {
-  const OnboardingPage({Key ? key}) : super(key: key);
+  const OnboardingPage({super.key});
   @override
   // ignore: library_private_types_in_public_api
   _OnboardingPageState createState() => _OnboardingPageState();
